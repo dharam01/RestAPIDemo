@@ -41,7 +41,7 @@ labelType=ShowWasNow => in this case priceLabel will be “Was £x.xx, now £y.y
 labelType=ShowWasThenNow => in this case priceLabel will be “Was £x.xx, then £y.yy, now £z.zzz”
 labelType=ShowPercDscount => in this case priceLabel will be “x% off - now £y.yy”.
 ```
-- The Data source for this API is from a json file at stored at below path
+- The Data source for this API is a json file stored at below path
 ```
 RestAPIDemo/src/main/resources/static/productData.json
 ```
