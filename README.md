@@ -45,3 +45,9 @@ labelType=ShowPercDscount => in this case priceLabel will be “x% off - now £y
 ```
 RestAPIDemo/src/main/resources/static/productData.json
 ```
+
+## Sequence Diagram
+The Sequence diagram of the code flow can be found in below file
+```
+RestAPIDemo/Sequence_Diagram.png
+```

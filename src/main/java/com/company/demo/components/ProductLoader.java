@@ -52,10 +52,9 @@ public class ProductLoader {
                         && (p.getPrice().getNow() != null && p.getPrice().getNow() != ""))
                         && (Double.valueOf(p.getPrice().getWas()).compareTo(Double.valueOf(p.getPrice().getNow())) > 0.0))
                 .map(sp -> decorateProduct(sp, labelType))
-                .sorted(Comparator.comparingDouble(SaleProduct::getPriceReduction)
-                        .reversed())
+                .sorted(Comparator.comparingDouble(SaleProduct::getPriceReduction).reversed())
                 .collect(Collectors.toList());
-
+        LOGGER.debug("Product count on sale = {}", allProducts.size());
         SaleProductsData saleProductsData = new SaleProductsData();
         saleProductsData.setProducts(saleProducts);
         return saleProductsData;
@@ -104,15 +103,17 @@ public class ProductLoader {
      */
     private String formatPrice(final Double value, final String currency) {
         LOGGER.debug("Formatting the price {} currency {}", value, currency);
+        String strValue = "";
         if (value < 10) {
-            return CURRENCY_SYMBOL.getOrDefault(currency, "") + DECIMAL_FMT_TWO.format(value);
+            strValue = DECIMAL_FMT_TWO.format(value);
         } else {
             if (value == value.intValue()) {
-                return CURRENCY_SYMBOL.getOrDefault(currency, "") + DECIMAL_FMT_ZERO.format(value);
+                strValue = DECIMAL_FMT_ZERO.format(value);
             } else {
-                return CURRENCY_SYMBOL.getOrDefault(currency, "") + DECIMAL_FMT_TWO.format(value);
+                strValue = DECIMAL_FMT_TWO.format(value);
             }
         }
+        return CURRENCY_SYMBOL.getOrDefault(currency, "") + strValue;
     }
 
     /**
