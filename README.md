@@ -31,13 +31,17 @@ Task: gradlew clean bootRun --args='--server.port=8081'
 ```
 
 ## Rest API details
-There is one GET Rest API is hosted in this application URL is given below
+- There is one GET Rest API is hosted in this application URL is given below
 ```
 http://localhost:8080/search/api/rest/v2/catalog/products/reductions?labelType=ShowWasNow
 ```
-There query parameter labelType is optional to change the format of priceLabel.
+- There query parameter labelType is optional to change the format of priceLabel.
 ```
 labelType=ShowWasNow => in this case priceLabel will be “Was £x.xx, now £y.yyy”
 labelType=ShowWasThenNow => in this case priceLabel will be “Was £x.xx, then £y.yy, now £z.zzz”
 labelType=ShowPercDscount => in this case priceLabel will be “x% off - now £y.yy”.
+```
+- The Data source for this API is from a json file at stored at below path
+```
+RestAPIDemo/src/main/resources/static/productData.json
 ```
